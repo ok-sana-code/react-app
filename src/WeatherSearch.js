@@ -32,9 +32,9 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <form className="SearchForm" onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city.." onChange={updateCity} />
-      <button type="Submit">Search</button>
+    <form className="SearchForm form-inline ml-5" onSubmit={handleSubmit}>
+      <input className="form-control mx-3 " type="search" placeholder="Enter a city.." onChange={updateCity} />
+      <button className="btn" type="Submit">Search</button>
     </form>
   );
 
@@ -47,15 +47,21 @@ export default function WeatherSearch() {
           <li>Monday 13:26</li>
           <li>{weather.description}</li>
         </ul>
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
-          <li>
+        <div className="row">
+          <div className="col-sm-6 row">
             <img src={weather.icon} alt={weather.description} />
-          </li>
-        </ul>
+            <div className="CurrentTemperature">{Math.round(weather.temperature)}°C</div>
+          </div>
+          <div className="col-sm-6">
+            <ul>
+            
+              <li>Description: {weather.description}</li>
+              <li>Humidity: {weather.humidity}%</li>
+              <li>Wind: {weather.wind}km/h</li>
+             
+            </ul>
+          </div>
+        </div>
       </div>
     );
   } else {
