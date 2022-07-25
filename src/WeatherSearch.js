@@ -32,7 +32,7 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
+    <form className="SearchForm" onSubmit={handleSubmit}>
       <input type="search" placeholder="Enter a city.." onChange={updateCity} />
       <button type="Submit">Search</button>
     </form>
@@ -40,9 +40,13 @@ export default function WeatherSearch() {
 
   if (loaded) {
     return (
-      <div className="WeatherSearch">
+      <div className="WeatherSearch ml-5">
         {form}
-        <h3>The weather in {weather.name}: </h3>
+        <h3>{weather.name}</h3>
+        <ul>
+          <li>Monday 13:26</li>
+          <li>{weather.description}</li>
+        </ul>
         <ul>
           <li>Temperature: {Math.round(weather.temperature)}°C</li>
           <li>Description: {weather.description}</li>
