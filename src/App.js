@@ -1,3 +1,4 @@
+import React from "react";
 import logo from './logo.svg';
 import './App.css';
 import WeatherSearch from "./WeatherSearch";
@@ -14,7 +15,7 @@ function App() {
           className="App-link"
           href="https://github.com/ok-sana-code/react-app"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           {" "}
           Open-source code
@@ -24,7 +25,7 @@ function App() {
           className="App-link"
           href="https://www.shecodes.io/"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           She Codes
         </a>
