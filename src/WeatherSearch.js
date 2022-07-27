@@ -12,12 +12,12 @@ export default function WeatherSearch() {
 
     setWeather({
       name: response.data.name,
-      date:FormatDate(response.data.dt * 1000),
+      date: FormatDate(response.data.dt * 1000),
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      description: response.data.weather[0].description,
+      description: response.data.weather[0].main,
     });
   }
 
@@ -34,35 +34,40 @@ export default function WeatherSearch() {
 
   let form = (
     <form className="SearchForm form-inline" onSubmit={handleSubmit}>
-      <input className="form-control mx-3 " type="search" placeholder="Enter a city.." onChange={updateCity} />
-      <button className="btn" type="Submit">Search</button>
+      <input
+        className="form-control mx-sm-3 "
+        type="search"
+        placeholder="Enter a city.."
+        onChange={updateCity}
+      />
+      <button className="btn " type="Submit">
+        Search
+      </button>
     </form>
   );
 
-  
-function FormatDate(){
-  let date = new Date();
-let houers = date.getHours();
-if (houers<10){
-  houers = `0${houers}`
-}
-let minutes = date.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[date.getDay()];
-return  (`${day} ${houers}:${minutes}`);
-
-}
+  function FormatDate() {
+    let date = new Date();
+    let houers = date.getHours();
+    if (houers < 10) {
+      houers = `0${houers}`;
+    }
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      minutes = `0${minutes}`;
+    }
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let day = days[date.getDay()];
+    return `${day} ${houers}:${minutes}`;
+  }
 
   if (loaded) {
     return (
@@ -80,9 +85,8 @@ return  (`${day} ${houers}:${minutes}`);
               {Math.round(weather.temperature)}°C
             </div>
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-6 mt-3">
             <ul>
-              <li>Description: {weather.description}</li>
               <li>Humidity: {weather.humidity}%</li>
               <li>Wind: {weather.wind}km/h</li>
             </ul>
