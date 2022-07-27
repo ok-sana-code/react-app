@@ -12,6 +12,7 @@ export default function WeatherSearch() {
 
     setWeather({
       name: response.data.name,
+      date:FormatDate(response.data.dt * 1000),
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
@@ -32,11 +33,36 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <form className="SearchForm form-inline ml-5" onSubmit={handleSubmit}>
+    <form className="SearchForm form-inline" onSubmit={handleSubmit}>
       <input className="form-control mx-3 " type="search" placeholder="Enter a city.." onChange={updateCity} />
       <button className="btn" type="Submit">Search</button>
     </form>
   );
+
+  
+function FormatDate(){
+  let date = new Date();
+let houers = date.getHours();
+if (houers<10){
+  houers = `0${houers}`
+}
+let minutes = date.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[date.getDay()];
+return  (`${day} ${houers}:${minutes}`);
+
+}
 
   if (loaded) {
     return (
@@ -44,21 +70,21 @@ export default function WeatherSearch() {
         {form}
         <h3>{weather.name}</h3>
         <ul>
-          <li>Monday 13:26</li>
+          <li>{weather.date}</li>
           <li>{weather.description}</li>
         </ul>
-        <div className="row">
+        <div className="row Weather">
           <div className="col-sm-6 row">
             <img src={weather.icon} alt={weather.description} />
-            <div className="CurrentTemperature">{Math.round(weather.temperature)}°C</div>
+            <div className="CurrentTemperature">
+              {Math.round(weather.temperature)}°C
+            </div>
           </div>
           <div className="col-sm-6">
             <ul>
-            
               <li>Description: {weather.description}</li>
               <li>Humidity: {weather.humidity}%</li>
               <li>Wind: {weather.wind}km/h</li>
-             
             </ul>
           </div>
         </div>

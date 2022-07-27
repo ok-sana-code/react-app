@@ -1,13 +1,22 @@
-.SearchForm{
-    text-align: center;
+.SearchForm {
+  text-align: center;
+  margin: 0 auto;
 }
 
-.WeatherSearch ul{
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.WeatherSearch h3{
+    margin-top: 20px;
+    margin-left: 20px;
 }
-.CurrentTemperature{
-    font-size: 60px;
-    line-height: 1.5;
+
+.WeatherSearch ul {
+  list-style: none;
+  margin-left: 20px;
+  padding: 0;
+}
+.WeatherSearch .Weather{
+     margin-left: 20px;
+}
+.CurrentTemperature {
+  font-size: 60px;
+  line-height: 1.5;
 }
