@@ -1,11 +1,13 @@
 .App {
   background-color: #282c34;
+font-size: 30px;
 }
 .App h1 {
   text-align: center;
+    margin-top: 10px;
 }
 .App-logo {
-  height: 20vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
@@ -38,6 +40,7 @@
 }
 
 .App footer {
+  font-size: 12px;
   color: #61dafb;
   text-align: center;
 }
