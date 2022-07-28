@@ -33,14 +33,18 @@ export default function WeatherSearch() {
   }
 
   let form = (
-    <form className="SearchForm form-inline" onSubmit={handleSubmit}>
+    <form
+      className="SearchForm form form-inline       mx-auto"
+      onSubmit={handleSubmit}
+    >
       <input
-        className="form-control mx-sm-3 "
+        className="form-control mx-3 mt-2 "
         type="search"
         placeholder="Enter a city.."
+        autoFocus={true}
         onChange={updateCity}
       />
-      <button className="btn " type="Submit">
+      <button className="btn mt-2 mx-auto mx-sm-0 " type="Submit">
         Search
       </button>
     </form>
@@ -71,21 +75,26 @@ export default function WeatherSearch() {
 
   if (loaded) {
     return (
-      <div className="WeatherSearch ml-5">
+      <div className="WeatherSearch ml-sm-5">
         {form}
-        <h3>{weather.name}</h3>
-        <ul>
-          <li>{weather.date}</li>
-          <li>{weather.description}</li>
-        </ul>
+        <div className="ShortDescription">
+          <h3>{weather.name}</h3>
+          <ul>
+            <li>{weather.date}</li>
+            <li>{weather.description}</li>
+          </ul>
+        </div>
         <div className="row Weather">
-          <div className="col-sm-6 row">
-            <img src={weather.icon} alt={weather.description} />
+          <div className="col-6 row">
+            <img className="img-fluid" src={weather.icon} alt={weather.description} />
             <div className="CurrentTemperature">
-              {Math.round(weather.temperature)}°C
+              <span >
+                {Math.round(weather.temperature)}
+              </span>
+              <span className="Units">°C</span>
             </div>
           </div>
-          <div className="col-sm-6 mt-3">
+          <div className="col-6 mt-4 mt-sm-3">
             <ul>
               <li>Humidity: {weather.humidity}%</li>
               <li>Wind: {weather.wind}km/h</li>

@@ -23,3 +23,58 @@
   font-size: 50px;
   line-height: 1.5;
 }
+.Units{
+  font-size: 20px;
+  position: relative;
+  top: -20px;
+}
+
+@media(max-width:600px){
+  .ShortDescription, 
+  .Weather{
+    text-align: center;
+     font-size: 15px;
+  }
+  .ShortDescription{
+    margin-top: 30px;
+  }
+  .CurrentTemperature{
+    font-size: 25px;
+    margin-top: 30px;
+  }
+  .Weather img{
+    
+    max-height: 90px;
+  }
+  .Units{
+    font-size:10px ;
+    top:-10px;
+  }
+}
+
+@media(max-width:300px){
+  .ShortDescription, 
+  .Weather{
+    text-align: center;
+     font-size: 12px;
+  }
+  .ShortDescription{
+    margin-top: 30px;
+  }
+  .CurrentTemperature{
+    font-size: 18px;
+    margin-top: 30px;
+  }
+  .Weather img{
+    margin-top: 14px;
+    max-height: 60px;
+  }
+  .Units{
+    font-size:7px ;
+    top:-10px;
+  }
+  .Weather{
+    font-size: 10px;
+   
+  }
+}
