@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Weather App in React</h1>
         <img src={logo} className="App-logo" alt="logo" />
-        <WeatherSearch />
+        <WeatherSearch/>
       </header>
       <footer>
         <a

@@ -34,7 +34,7 @@ export default function WeatherSearch() {
 
   let form = (
     <form
-      className="SearchForm form form-inline       mx-auto"
+      className="SearchForm form form-inline mx-auto"
       onSubmit={handleSubmit}
     >
       <input
